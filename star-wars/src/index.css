@@ -1,0 +1,14 @@
+Header {
+	font-size: 50px;
+	color: black;
+}
+.navbar-container {
+	font-size: 30px;
+	color: black;
+	display: flex;
+}
+
+.main-routes {
+	font-size: 20px;
+	color: black;
+}
