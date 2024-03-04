@@ -4,7 +4,7 @@ import Home from './Home'
 
 function Main() {
 	return (
-		<h3 className="main-routes">
+		<h3 className="routes-container">
 			<Routes>
 				<Route exact path="/" element={<Home />} />
 				<Route exact path="/starships" element={<StarshipsList />} />

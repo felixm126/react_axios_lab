@@ -1,10 +1,10 @@
-import Navbar from './Nav'
+import Navbar from './Navbar'
 
 function Header() {
 	return (
 		<header>
 			<h1>Star Wars</h1>
-			<nav>
+			<nav className="navbar-header">
 				<Navbar />
 			</nav>
 		</header>

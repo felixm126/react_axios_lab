@@ -7,15 +7,13 @@ function useFetchData() {
 	const [starShips, setStarShips] = useState([])
 
 	useEffect(() => {
+		console.log('Mounted the ship!')
 		const fetchShips = async () => {
-			try {
-				const response = await axios.get(url)
-				console.log(response)
+			const response = await axios.get(url)
+			console.log(response)
 
-				setStarShips(response.data.results)
-			} catch (error) {
-				console.error('Failed to fetch starships', error)
-			}
+			setStarShips(response.data.results)
+			console.log(response.data.results, 'fetch data 16')
 		}
 		fetchShips()
 	}, [])

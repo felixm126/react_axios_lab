@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import './App.css'
 import axios from 'axios'
-import Header from './components/Header'
-import Main from './components/Main'
+import Header from './components/Header.jsx'
+import Main from './components/Main.jsx'
 
 function App() {
-	// const [count, setCount] = useState(0)
-
 	return (
 		<div>
 			<Header />
@@ -14,5 +13,7 @@ function App() {
 		</div>
 	)
 }
-
 export default App
+
+// ->>	Add Conditional Rendering		<---
+// 		Guard Operators

@@ -1,9 +1,12 @@
+import { useState, useEffect } from 'react'
 import useFetchData from '../hooks/useFetchData'
+import '../App.css'
 
 function StarshipsList() {
 	// get array from hook and declare it equal to starships
 	const starships = useFetchData()
-	console.log(starships)
+
+	const [isLoading, setIsLoading] = useState(true)
 
 	// set the schema for information wed like returned
 	const starshipSchema = [
@@ -27,6 +30,12 @@ function StarshipsList() {
 		'url',
 	]
 
+	useEffect(() => {
+		if (starships.length) {
+			setIsLoading(false)
+		}
+	}, [starships])
+
 	const mapStarships = (starships) => {
 		// map data to the schema
 		return starships.map((starship) => {
@@ -41,14 +50,18 @@ function StarshipsList() {
 	}
 	const mappedStarships = mapStarships(starships)
 
+	if (isLoading) {
+		return <div>Loading,please wait...</div>
+	}
+
 	return (
-		<div className="starships-list">
-			{/* render starships with each attribute as the value*/}
+		<div className="card-container">
+			{/* render starships with each attribute as the value */}
 			{mappedStarships.map((starship, index) => (
-				<div item={index}>
-					{starshipSchema.map((item) => {
-						;<p item={item}>{`${item}: ${starship[item]}`}</p>
-					})}
+				<div key={index} className="card">
+					{starshipSchema.map((item, index) => (
+						<p key={index}>{`${item}: ${starship[item]}`}</p>
+					))}
 				</div>
 			))}
 		</div>
